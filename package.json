@@ -1,0 +1,40 @@
+{
+  "name": "es62bin-cli",
+  "version": "0.0.1-alpha",
+  "description": "es6 文件转换成 bin 文件",
+  "bin": {
+    "es62bin": "./bin/es62bin"
+  },
+  "scripts": {
+    "compile": "babel lib/es6 -d lib & babel bin/es62bin.es6 -o bin/es62bin & babel test/es62bin.es6 -o test/es62bin.js",
+    "test": "mocha test/es62bin.js -G"
+  },
+  "author": "cntanglijun",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-polyfill": "^6.13.0",
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "fs-extra": "^0.30.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-latest": "^6.14.0",
+    "mocha": "^3.0.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cntanglijun/es62bin-cli.git"
+  },
+  "keywords": [
+    "es62bin"
+  ],
+  "bugs": {
+    "url": "https://github.com/cntanglijun/es62bin-cli/issues"
+  },
+  "homepage": "https://github.com/cntanglijun/es62bin-cli#readme"
+}

@@ -1,0 +1,8 @@
+{
+  "presets": [
+    "latest"
+  ],
+  "minified": true,
+  "comments": false,
+  "compact": true
+}
