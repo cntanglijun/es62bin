@@ -5,7 +5,7 @@ import path from 'path';
 import { transformFileSync } from 'babel-core';
 
 describe('es62bin', () => {
-  it( 'should return code`s header is `#!/usr/bin/env node`', (done) => {
+  it( 'should return code`s header is `#!/usr/bin/env node`', () => {
     const fileName = path.join(__dirname, './fixtures/demo.es6');
     const myRes = compiler(fileName);
     const babelRes = transformFileSync(fileName, {
@@ -13,8 +13,6 @@ describe('es62bin', () => {
       minified: true,
       compact: true
     }).code;
-
     assert.equal( myRes,  '#!/usr/bin/env node\n' + babelRes);
-
   } );
 } );

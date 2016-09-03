@@ -7,7 +7,7 @@
   },
   "scripts": {
     "compile": "babel lib/es6 -d lib & babel bin/es62bin.es6 -o bin/es62bin & babel test/es62bin.es6 -o test/es62bin.js",
-    "test": "mocha test/es62bin.js -G"
+    "test": "mocha test/es62bin.js"
   },
   "author": "cntanglijun",
   "license": "MIT",
@@ -38,6 +38,6 @@
   },
   "homepage": "https://github.com/cntanglijun/es62bin-cli#readme",
   "engines": {
-    "node": "latest"
+    "node": ">= 6.0.0"
   }
 }
