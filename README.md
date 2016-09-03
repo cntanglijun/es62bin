@@ -2,7 +2,6 @@
 [![Build Status](https://travis-ci.org/cntanglijun/es62bin-cli.svg?branch=master)](https://travis-ci.org/cntanglijun/es62bin-cli)
 [![npm](https://img.shields.io/npm/dm/es62bin-cli.svg?maxAge=2592000)](https://www.npmjs.com/package/es62bin-cli)
 [![npm](https://img.shields.io/npm/v/es62bin-cli.svg?maxAge=2592000)](https://www.npmjs.com/package/es62bin-cli)
-[![node](https://img.shields.io/node/v/es62bin-cli.svg?maxAge=2592000)](https://github.com/cntanglijun/es62bin-cli)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/cntanglijun/es62bin-cli/master/LICENSE.md)
 
 用于将 es6 文件转换成 bin 格式文件
