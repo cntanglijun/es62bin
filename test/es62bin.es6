@@ -16,6 +16,5 @@ describe('es62bin', () => {
 
     assert.equal( myRes,  '#!/usr/bin/env node\n' + babelRes);
 
-    done()
   } );
 } );
