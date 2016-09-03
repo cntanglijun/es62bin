@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import assert from 'assert';
 import compiler from '../lib/compiler';
 import path from 'path';
