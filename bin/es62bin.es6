@@ -24,14 +24,13 @@ program
       } )
       .then( file => {
         if ( file ) {
-          _compile();
-
           if (program.watch) {
             console.log('Recompile files on changes. Press `Ctrl + C` to stop'.yellow);
             fs.watchFile(path, () => {
               _compile();
             });
           }
+          _compile();
         } else {
           console.log( 'Sorry, only supports single file at present'.yellow );
         }
