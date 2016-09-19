@@ -43,7 +43,13 @@ program
 
 function _compile() {
   fse.outputFileSync( program.outFile || path, compiler( path ), 'utf8' );
-  console.log( 'compiled: '.cyan + path + ' => ' + program.outFile.magenta );
+  console.log( [
+    'compiled:'.cyan,
+    path,
+    '=>',
+    program.outFile.magenta,
+    new Date().toLocaleString()
+  ].join(' ') );
 }
 
 function _isFile( path ) {

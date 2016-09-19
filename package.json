@@ -1,6 +1,6 @@
 {
   "name": "es62bin-cli",
-  "version": "0.0.5-alpha",
+  "version": "0.0.6-alpha",
   "description": "es6 文件转换成 bin 文件",
   "bin": {
     "es62bin": "./bin/es62bin"

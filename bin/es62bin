@@ -51,7 +51,7 @@ _commander2.default.version(_package.version).arguments('<path>').option('-o --o
 
 function _compile() {
   _fsExtra2.default.outputFileSync(_commander2.default.outFile || path, (0, _compiler2.default)(path), 'utf8');
-  console.log('compiled: '.cyan + path + ' => ' + _commander2.default.outFile.magenta);
+  console.log(['compiled:'.cyan, path, '=>', _commander2.default.outFile.magenta, new Date().toLocaleString()].join(' '));
 }
 
 function _isFile(path) {
