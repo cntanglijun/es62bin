@@ -1,2 +1,80 @@
 #!/usr/bin/env node
-'use strict';require('babel-polyfill');require('colors');var _commander=require('commander');var _commander2=_interopRequireDefault(_commander);var _fs=require('fs');var _fs2=_interopRequireDefault(_fs);var _fsExtra=require('fs-extra');var _fsExtra2=_interopRequireDefault(_fsExtra);var _compiler=require('../lib/compiler');var _compiler2=_interopRequireDefault(_compiler);var _package=require('../package.json');function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var path=void 0;_commander2.default.version(_package.version).arguments('<path>').option('-o --out-file [path]',' Compile `es6` files into a `bin` file').option('-w --watch','Recompile files on changes').action(function(p){path=p;_exists(path).then(function(){return _isFile(path)}).then(function(file){if(file){if(_commander2.default.watch){console.log('Recompile files on changes. Press `Ctrl + C` to stop'.yellow);_fs2.default.watchFile(path,function(){_compile()})}_compile()}else{console.log('Sorry, only supports single file at present'.yellow)}}).catch(function(err){console.log(err.message.red)})}).parse(process.argv);function _compile(){_fsExtra2.default.outputFileSync(_commander2.default.outFile||path,(0,_compiler2.default)(path),'utf8');console.log('compiled: '.cyan+path+' => '+_commander2.default.outFile.magenta)}function _isFile(path){return new Promise(function(resolve,reject){_fs2.default.stat(path,function(err,stats){if(err){reject(err)}else{resolve(stats.isFile())}})})}function _exists(path){return new Promise(function(resolve,reject){_fs2.default.access(path,_fs2.default.constants.F_OK,function(err){err?reject(err):resolve()})})}if(Object.is(path,undefined)){console.log('Use `es62bin -h` to get more information.'.yellow);process.exit(1)}
+'use strict';
+
+require('babel-polyfill');
+
+require('colors');
+
+var _commander = require('commander');
+
+var _commander2 = _interopRequireDefault(_commander);
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _fsExtra = require('fs-extra');
+
+var _fsExtra2 = _interopRequireDefault(_fsExtra);
+
+var _compiler = require('../lib/compiler');
+
+var _compiler2 = _interopRequireDefault(_compiler);
+
+var _package = require('../package.json');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var path = void 0;
+
+_commander2.default.version(_package.version).arguments('<path>').option('-o --out-file [path]', ' Compile `es6` files into a `bin` file').option('-w --watch', 'Recompile files on changes').action(function (p) {
+  path = p;
+
+  _exists(path).then(function () {
+    return _isFile(path);
+  }).then(function (file) {
+    if (file) {
+      if (_commander2.default.watch) {
+        console.log('Recompile files on changes. Press `Ctrl + C` to stop'.yellow);
+        _fs2.default.watchFile(path, function () {
+          _compile();
+        });
+      }
+      _compile();
+    } else {
+      console.log('Sorry, only supports single file at present'.yellow);
+    }
+  }).catch(function (err) {
+    console.log(err.message.red);
+  });
+}).parse(process.argv);
+
+function _compile() {
+  _fsExtra2.default.outputFileSync(_commander2.default.outFile || path, (0, _compiler2.default)(path), 'utf8');
+  console.log('compiled: '.cyan + path + ' => ' + _commander2.default.outFile.magenta);
+}
+
+function _isFile(path) {
+  return new Promise(function (resolve, reject) {
+    _fs2.default.stat(path, function (err, stats) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(stats.isFile());
+      }
+    });
+  });
+}
+
+function _exists(path) {
+  return new Promise(function (resolve, reject) {
+    _fs2.default.access(path, _fs2.default.constants.F_OK, function (err) {
+      err ? reject(err) : resolve();
+    });
+  });
+}
+
+if (Object.is(path, undefined)) {
+  console.log('Use `es62bin -h` to get more information.'.yellow);
+  process.exit(1);
+}

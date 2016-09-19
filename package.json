@@ -1,15 +1,15 @@
 {
   "name": "es62bin-cli",
-  "version": "0.0.4-alpha",
+  "version": "0.0.5-alpha",
   "description": "es6 文件转换成 bin 文件",
   "bin": {
     "es62bin": "./bin/es62bin"
   },
   "scripts": {
-    "compile-lib": "babel lib/es6 -d lib",
-    "compile-bin": "babel bin/es62bin.es6 -o bin/es62bin",
-    "compile-test": "babel test/es62bin.es6 -o test/es62bin.js",
-    "test": "mocha test/es62bin.js"
+    "compile-lib": "babel src/lib/compiler.es6 -o lib/compiler.js",
+    "compile-bin": "babel src/bin/es62bin.es6 -o bin/es62bin",
+    "compile-test": "babel src/test/es62bin.test.es6 -o test/es62bin.test.js",
+    "test": "mocha"
   },
   "author": "cntanglijun",
   "license": "MIT",

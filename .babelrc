@@ -2,7 +2,7 @@
   "presets": [
     "latest"
   ],
-  "minified": true,
+  "minified": false,
   "comments": false,
-  "compact": true
+  "compact": false
 }
